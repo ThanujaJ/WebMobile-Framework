@@ -59,12 +59,18 @@ OS: Linux (Mac)
 •	Install Maven and setup maven environment variables
 
 •	Verify Appium installation using below command and make sure all dependencies are installed using following commands
-	    npm install -g appium-doctor
-    	appium-doctor --android
+
+	   - npm install -g appium-doctor
+
+       - appium-doctor --android
+
 •	Setup environment variables
-        export ANDROID_HOME=/Users/YourUser/Library/Android/sdk
-        export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home
-        Add the Android sdk paths to your existing PATH=$PATH variable. e.g. :/Users/YourUser/Library/Android/sdk/tools:/Users/YourUser/Library/Android/sdk/platform-tools:/Users/YourUser/Library/Android/sdk/build-tools
+
+       - export ANDROID_HOME=/Users/YourUser/Library/Android/sdk
+
+       -  export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home
+
+        - Add the Android sdk paths to your existing PATH=$PATH variable. e.g. :/Users/YourUser/Library/Android/sdk/tools:/Users/YourUser/Library/Android/sdk/platform-tools:/Users/YourUser/Library/Android/sdk/build-tools
 
 •	Open terminal and clone the project and import all dependencies.
 
