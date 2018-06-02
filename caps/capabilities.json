@@ -1,0 +1,33 @@
+{
+  "android": {
+    "platformName": "android",
+    "platformVersion": "7.1.0",
+    "browserName": "chrome",
+    "deviceName": "One plus 5",
+    "takesScreenshot":false
+  },
+  "iOS": {
+    "platformName": "iOS",
+    "browserName": "Safari",
+    "deviceName": "iPhone",
+    "usePrebuiltWDA": true,
+    "wdaLaunchTimeout": "80000",
+    "wdaConnectionTimeout": "80000",
+    "preventWDAAttachments": true,
+    "clearSystemFiles": true,
+    "shouldUseSingletonTestManager": false,
+    "simpleIsVisibleCheck": true,
+    "maxTypingFrequency": 10
+  },
+  "hostMachines": [
+    {
+      "machineIP": "127.0.0.1",
+      "simulators": [
+        {
+          "deviceName": "iPhone 6",
+          "OS": "11.2"
+        }
+      ]
+    }
+  ]
+}

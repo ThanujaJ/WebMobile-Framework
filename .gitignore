@@ -1,0 +1,22 @@
+classpath
+.project
+.settings/
+bin/
+target/
+test-output/
+src/.DS_Store
+target/
+.DS_Store
+reports/
+.idea
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+.idea/
+.idea
+target/
+SmavaAssignment.iml
