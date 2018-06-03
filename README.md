@@ -34,7 +34,7 @@ OS: Linux (Mac)
 
 	To Execute to Appium tests, execute below command
 
-•	mvn clean test
+•	mvn clean test.
 
 
 ## [Prerequisites to run m-web tests]
