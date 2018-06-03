@@ -96,3 +96,13 @@ OS: Linux (Mac)
 •	Platform=ios mvn install -Dtest=Runner test (Only Ios)
 
 •	Platform=both mvn install -Dtest=Runner test (Both Andorid and Ios)
+
+## Reports
+
+Framework has been integrated with Extent Reports, we can find under target folder
+
+•  	Mobile Execution Report: ExternReports.html
+
+•	Web Execution Report: SmavaAutomationReport.html
+
+
