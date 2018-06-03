@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.Augmenter;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -23,7 +24,7 @@ public class Retry implements IRetryAnalyzer {
     Map<String, Integer> retryCounts = new HashMap<String, Integer>();
 
     @Override
-    public boolean retry(ITestResult result) {
+    public boolean retry ( ITestResult result ) {
         int counter = 0;
         int retryCountForTest = 0;
         String methodName = result.getMethod().getMethodName();
@@ -31,7 +32,7 @@ public class Retry implements IRetryAnalyzer {
 
         while (obj.length != counter) {
             methodName = methodName + "_" + obj[counter];
-            counter ++;
+            counter++;
         }
 
         if (retryCounts.containsKey(methodName)) {
@@ -40,16 +41,16 @@ public class Retry implements IRetryAnalyzer {
         }
 
         if (!result.isSuccess() && retryCountForTest < maxCount) {
-            System.out.println(methodName + " execution failed in count: " + retryCountForTest +"\n");
+            System.out.println(methodName + " execution failed in count: " + retryCountForTest + "\n");
             retryCounts.put(methodName, retryCountForTest);
             return true;
         }
 
         if (!result.isSuccess() && retryCountForTest == maxCount) {
             retryCounts.remove(methodName);
-            System.out.println(methodName + " execution failed in count: " + maxCount +"\n");
+            System.out.println(methodName + " execution failed in count: " + maxCount + "\n");
             ExtentTest child = WebDriverListener.extentMap.get(result.getMethod().getRealClass().getSimpleName())
-                    .createNode(result.getMethod().getMethodName() + "["+ obj[0] +"]")
+                    .createNode(result.getMethod().getMethodName() + "[" + obj[0] + "]")
                     .assignCategory(result.getMethod().getRealClass().getSimpleName());
             ExtentTestFactory.setExtentTest(child);
             ExtentTestFactory.getExtentTest().info(obj[0].toString());
@@ -64,10 +65,10 @@ public class Retry implements IRetryAnalyzer {
         return false;
     }
 
-    public void captureScreenShot(String className, String methodName) throws IOException {
+    public void captureScreenShot ( String className, String methodName ) throws IOException {
         System.out.println("Page title is: " + DriverManager.getDriver().getTitle());
         WebDriver driver = new Augmenter().augment(DriverManager.getDriver());
-        File scrFile = ( (TakesScreenshot)driver ).getScreenshotAs(OutputType.FILE);
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         String screenShotNameWithTimeStamp = currentDateAndTime();
         String failedScreen =
                 System.getProperty("user.dir") + "/target/screenshot/" + className + "/" + methodName + "/"
@@ -80,7 +81,7 @@ public class Retry implements IRetryAnalyzer {
                                         + screenShotNameWithTimeStamp + "_" + methodName + "_failed" + ".png"));
     }
 
-    public String currentDateAndTime() {
+    public String currentDateAndTime () {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("ddMMyyyyHHmmss");
         return now.format(dtf);

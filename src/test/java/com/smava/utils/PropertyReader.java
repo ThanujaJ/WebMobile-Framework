@@ -18,32 +18,32 @@ public class PropertyReader {
     InputStream inputStreamConfig;
     InputStream inputStreamEnvSpecConfig;
 
-    public static PropertyReader getInstance() {
+    public static PropertyReader getInstance () {
         if (instance == null) {
             instance = new PropertyReader();
         }
         return instance;
     }
 
-    public PropertyReader() {
+    public PropertyReader () {
         getConfigProperties();
     }
 
-    private void getConfigProperties() {
+    private void getConfigProperties () {
         try {
-                inputStreamConfig = new FileInputStream("config.properties");
-                envProperties.load(inputStreamConfig);
-                loadPropertiesPerEnv();
+            inputStreamConfig = new FileInputStream("config.properties");
+            envProperties.load(inputStreamConfig);
+            loadPropertiesPerEnv();
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
         }
     }
 
-    private void loadPropertiesPerEnv() {
+    private void loadPropertiesPerEnv () {
         try {
             String environment = System.getenv("EnvironmentName");
-            if( environment == null ) {
+            if (environment == null) {
                 environment = envProperties.getProperty("environment");
             }
             if (environment.toLowerCase().equalsIgnoreCase("PROD")) {
@@ -62,9 +62,11 @@ public class PropertyReader {
 
     }
 
-    public String readProperty(String key) { return envProperties.getProperty(key);}
+    public String readProperty ( String key ) {
+        return envProperties.getProperty(key);
+    }
 
-    public String readEnvSpecProperty(String key) {
+    public String readEnvSpecProperty ( String key ) {
         return envSpecProperties.getProperty(key);
     }
 }

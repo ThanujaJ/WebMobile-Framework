@@ -7,5 +7,5 @@ package com.smava.utils;
 
 public abstract class Messages {
 
-    public abstract String getMessage(String key);
+    public abstract String getMessage ( String key );
 }

@@ -3,6 +3,7 @@ package com.smava.tests;
 import com.appium.manager.ParallelThread;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
 public class Runner {
 
     @Test(groups = {"Mobile"})
-    public void testApp() throws Exception {
+    public void testApp () throws Exception {
         ParallelThread parallelThread = new ParallelThread();
         List<String> list = new ArrayList<>();
         list.add("LoanSelectionTest");

@@ -1,7 +1,7 @@
 package com.smava.utils;
 
-import com.smava.flows.WebFlow;
 import com.appium.manager.AppiumDriverManager;
+import com.smava.flows.WebFlow;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -16,16 +16,16 @@ public class TestRunnerInfo {
     PropertyReader propertyReader;
     ViewFactory viewFactory;
 
-    public TestRunnerInfo() {
+    public TestRunnerInfo () {
         propertyReader = PropertyReader.getInstance();
         runnerInfo = runnerInfoStatus();
     }
 
-    public DeviceInterface getRunnerInfo() {
+    public DeviceInterface getRunnerInfo () {
         return runnerInfo;
     }
 
-    public DeviceInterface runnerInfoStatus() {
+    public DeviceInterface runnerInfoStatus () {
         try {
             AppiumDriverManager.getDriver().getPlatformName();
             viewFactory = new ViewFactory(AppiumDriverManager.getDriver());
@@ -40,7 +40,7 @@ public class TestRunnerInfo {
         }
     }
 
-    public WebDriver getDriverSession() {
+    public WebDriver getDriverSession () {
         return driver.get();
     }
 }

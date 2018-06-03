@@ -12,6 +12,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.*;
 import org.testng.xml.XmlClass;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -30,12 +31,12 @@ public class WebDriverListener implements IInvokedMethodListener, ITestListener,
     PropertyReader propertyReader;
     public static String filePath = System.getProperty("user.dir") + "/target/SmavaAutomationReport.html";
 
-    public WebDriverListener() {
+    public WebDriverListener () {
         propertyReader = PropertyReader.getInstance();
     }
 
     @Override
-    public void beforeInvocation(IInvokedMethod iInvokedMethod, ITestResult iTestResult) {
+    public void beforeInvocation ( IInvokedMethod iInvokedMethod, ITestResult iTestResult ) {
         if (iInvokedMethod.isTestMethod()) {
             String browserName = iInvokedMethod.getTestMethod().getXmlTest().getLocalParameters().get("browserName");
             WebDriver driver = DriverFactory.createInstance(browserName);
@@ -45,7 +46,7 @@ public class WebDriverListener implements IInvokedMethodListener, ITestListener,
     }
 
     @Override
-    public void afterInvocation(IInvokedMethod iInvokedMethod, ITestResult iTestResult) {
+    public void afterInvocation ( IInvokedMethod iInvokedMethod, ITestResult iTestResult ) {
 
         if (iTestResult.getStatus() == ITestResult.SUCCESS) {
             ExtentTest child = extentMap.get(iInvokedMethod.getTestMethod().getRealClass().getSimpleName())
@@ -60,7 +61,7 @@ public class WebDriverListener implements IInvokedMethodListener, ITestListener,
     }
 
     @Override
-    public void onStart(ITestContext iTestContext) {
+    public void onStart ( ITestContext iTestContext ) {
         report = new ExtentReports();
         report.attachReporter(getHtmlReporter());
         report.setSystemInfo("Selenium Java Version", "3.0");
@@ -78,11 +79,11 @@ public class WebDriverListener implements IInvokedMethodListener, ITestListener,
     }
 
     @Override
-    public void onFinish(ITestContext iTestContext) {
+    public void onFinish ( ITestContext iTestContext ) {
         report.flush();
     }
 
-    public void captureScreenShot(String className, String methodName) throws IOException, InterruptedException {
+    public void captureScreenShot ( String className, String methodName ) throws IOException, InterruptedException {
         try {
             File scrFile = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.FILE);
             String screenShotNameWithTimeStamp = currentDateAndTime();
@@ -100,13 +101,13 @@ public class WebDriverListener implements IInvokedMethodListener, ITestListener,
         }
     }
 
-    public String currentDateAndTime() {
+    public String currentDateAndTime () {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("ddMMyyyyHHmmss");
         return now.format(dtf);
     }
 
-    private static ExtentHtmlReporter getHtmlReporter() {
+    private static ExtentHtmlReporter getHtmlReporter () {
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(filePath);
         htmlReporter.config().setChartVisibilityOnOpen(true);
         htmlReporter.config().setDocumentTitle("Responsive Smava Automation");
@@ -117,7 +118,7 @@ public class WebDriverListener implements IInvokedMethodListener, ITestListener,
     }
 
     @Override
-    public boolean retry(ITestResult result) {
+    public boolean retry ( ITestResult result ) {
         if (count < maxCount && !result.isSuccess()) {
             System.out.println("Retrying test case: " + result.getMethod() + " [" + result.getParameters()[0] + "]" + ", " + count + " out of " + maxCount);
             count++;
@@ -147,31 +148,31 @@ public class WebDriverListener implements IInvokedMethodListener, ITestListener,
     }
 
     @Override
-    public void onTestStart(ITestResult iTestResult) {
+    public void onTestStart ( ITestResult iTestResult ) {
 
     }
 
     @Override
-    public void onTestSuccess(ITestResult iTestResult) {
+    public void onTestSuccess ( ITestResult iTestResult ) {
         printTestResults(iTestResult);
     }
 
     @Override
-    public void onTestFailure(ITestResult iTestResult) {
+    public void onTestFailure ( ITestResult iTestResult ) {
         printTestResults(iTestResult);
     }
 
     @Override
-    public void onTestSkipped(ITestResult iTestResult) {
+    public void onTestSkipped ( ITestResult iTestResult ) {
 
     }
 
     @Override
-    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+    public void onTestFailedButWithinSuccessPercentage ( ITestResult iTestResult ) {
 
     }
 
-    private void printTestResults(ITestResult iTestResult) {
+    private void printTestResults ( ITestResult iTestResult ) {
 
         Reporter.log("Test Method is under Test Class: " + iTestResult.getTestClass().getName(), true);
 

@@ -2,9 +2,7 @@ package com.smava.flows;
 
 import com.smava.pageObjects.LandingPageObjects;
 import com.smava.utils.*;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -13,14 +11,14 @@ import org.openqa.selenium.support.PageFactory;
  * @author Sudhanva on 5/30/18
  * @project smava
  */
-public class MobileFlow implements DeviceInterface{
+public class MobileFlow implements DeviceInterface {
 
     WebDriver webDriver;
     DeviceHelper deviceHelper;
     DeviceInterface runnerInfo;
     LandingPageObjects landingPageObjects;
 
-    public MobileFlow(WebDriver driver){
+    public MobileFlow ( WebDriver driver ) {
         this.webDriver = driver;
         deviceHelper = new DeviceHelper(driver);
         landingPageObjects = new LandingPageObjects();
@@ -32,7 +30,7 @@ public class MobileFlow implements DeviceInterface{
     }
 
     @Override
-    public Messages getMessages(){
+    public Messages getMessages () {
         return new MobileMessages();
     }
 
@@ -50,26 +48,25 @@ public class MobileFlow implements DeviceInterface{
     }
 
     @Override
-    public void enterLoanDetails( String loanCategory, String loanAmount, String loanDuration ) throws InterruptedException
-    {
-        deviceHelper.selectDropdownByText(landingPageObjects.m_loanAmount, loanAmount + " €" );
+    public void enterLoanDetails ( String loanCategory, String loanAmount, String loanDuration ) throws InterruptedException {
+        deviceHelper.selectDropdownByText(landingPageObjects.m_loanAmount, loanAmount + " €");
 
-        deviceHelper.selectDropdownByText(landingPageObjects.m_loanDuration, loanDuration + " Monate" );
+        deviceHelper.selectDropdownByText(landingPageObjects.m_loanDuration, loanDuration + " Monate");
 
-        deviceHelper.selectDropdownByText(landingPageObjects.m_loanCategory, loanCategory );
+        deviceHelper.selectDropdownByText(landingPageObjects.m_loanCategory, loanCategory);
 
         landingPageObjects.compare.click();
     }
 
     @Override
-    public void viewLoanOptions ( String bankName ){
+    public void viewLoanOptions ( String bankName ) {
         deviceHelper.waitTillTheElementIsVisibleAndClickable(continueBtn(bankName));
 
         continueBtn(bankName).click();
     }
 
     @Override
-    public void performLogin(String emailAddress, String password){
+    public void performLogin ( String emailAddress, String password ) {
 
         landingPageObjects.m_menuIcon.click();
 
@@ -83,7 +80,7 @@ public class MobileFlow implements DeviceInterface{
     }
 
     @Override
-    public String getLoginErrorMessage(){
+    public String getLoginErrorMessage () {
         return landingPageObjects.loginErrMessage.getText();
     }
 }

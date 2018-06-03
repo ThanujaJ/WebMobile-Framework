@@ -12,7 +12,7 @@ public class LoanDetails {
     String loanDuration;
     Banks bank;
 
-    public LoanDetails(String loanAmount, String loanCategory, String loanDuration, Banks bank){
+    public LoanDetails ( String loanAmount, String loanCategory, String loanDuration, Banks bank ) {
         this.loanAmount = loanAmount;
         this.loanCategory = loanCategory;
         this.loanDuration = loanDuration;

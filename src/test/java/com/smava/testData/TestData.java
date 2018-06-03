@@ -11,9 +11,9 @@ import org.testng.annotations.DataProvider;
 public class TestData {
 
     @DataProvider
-    public static Object[][] getLoanDetails() throws InterruptedException {
+    public static Object[][] getLoanDetails () throws InterruptedException {
         return new Object[][]{
-                { new LoanDetails("2.750", "Wohnen", "24", Banks.SWK_BANK)},
+                {new LoanDetails("2.750", "Wohnen", "24", Banks.SWK_BANK)},
         };
     }
 }

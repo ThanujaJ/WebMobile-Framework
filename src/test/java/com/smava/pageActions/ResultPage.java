@@ -32,9 +32,9 @@ public class ResultPage {
 
     public Boolean verifyLoanDetails ( LoanDetails loanDetails ) {
 
-            Assert.assertEquals( deviceHelper.getSelectedValueFromDropDown(resultPageObjects.loanCategory), loanDetails.getLoanCategory(), "Mismatch in loan category");
-            Assert.assertEquals( deviceHelper.getSelectedValueFromDropDown(resultPageObjects.loanAmount).replace(".",""), loanDetails.getLoanAmount().replace(".","") + " €", "Mismatch in loan amount");
-            Assert.assertEquals( deviceHelper.getSelectedValueFromDropDown(resultPageObjects.loanDuration), loanDetails.getLoanDuration() + " Monate", "Mismatch in loan duration");
-            return true;
+        Assert.assertEquals(deviceHelper.getSelectedValueFromDropDown(resultPageObjects.loanCategory), loanDetails.getLoanCategory(), "Mismatch in loan category");
+        Assert.assertEquals(deviceHelper.getSelectedValueFromDropDown(resultPageObjects.loanAmount).replace(".", ""), loanDetails.getLoanAmount().replace(".", "") + " €", "Mismatch in loan amount");
+        Assert.assertEquals(deviceHelper.getSelectedValueFromDropDown(resultPageObjects.loanDuration), loanDetails.getLoanDuration() + " Monate", "Mismatch in loan duration");
+        return true;
     }
 }

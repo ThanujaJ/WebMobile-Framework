@@ -5,12 +5,9 @@ import com.smava.utils.DeviceHelper;
 import com.smava.utils.DeviceInterface;
 import com.smava.utils.URLGetter;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
-import java.security.Key;
 
 /**
  * @author Sudhanva on 5/31/18
@@ -74,7 +71,7 @@ public class LandingPage {
 
     public void performLogin ( String emailAddress, String password ) {
 
-        runnerInfo.performLogin(emailAddress,password);
+        runnerInfo.performLogin(emailAddress, password);
     }
 
     public String getLoginErrorMessage () {

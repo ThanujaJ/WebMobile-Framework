@@ -1,6 +1,5 @@
 package com.smava.tests;
 
-import com.smava.entities.Banks;
 import com.smava.entities.LoanDetails;
 import com.smava.pageActions.LandingPage;
 import com.smava.pageActions.ResultPage;
@@ -20,7 +19,7 @@ public class LoanSelectionTest {
     ResultPage resultPage;
 
     @Test(dataProvider = "getLoanDetails", groups = {"Regression"}, dataProviderClass = TestData.class)
-    public void applyForLoan( LoanDetails loanDetails) throws InterruptedException {
+    public void applyForLoan ( LoanDetails loanDetails ) throws InterruptedException {
 
         System.setProperty("environment", "PROD");
 
@@ -35,7 +34,7 @@ public class LoanSelectionTest {
         Assert.assertTrue(resultPage.verifyLoanDetails(loanDetails), "Loan details on result page doesn't match the loan details provided on landing page");
     }
 
-    LandingPage getLandingPage(){
+    LandingPage getLandingPage () {
         WebDriver driverSession = new TestRunnerInfo().getDriverSession();
         DeviceInterface runnerInfo = new TestRunnerInfo().getRunnerInfo();
         resultPage = new ResultPage(driverSession, runnerInfo);

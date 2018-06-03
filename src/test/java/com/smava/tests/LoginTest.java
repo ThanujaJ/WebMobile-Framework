@@ -1,9 +1,6 @@
 package com.smava.tests;
 
-import com.smava.entities.LoanDetails;
 import com.smava.pageActions.LandingPage;
-import com.smava.pageActions.ResultPage;
-import com.smava.testData.TestData;
 import com.smava.utils.DeviceInterface;
 import com.smava.utils.Messages;
 import com.smava.utils.TestRunnerInfo;
@@ -20,7 +17,7 @@ public class LoginTest {
     Messages messages;
 
     @Test
-    public void loginWithInvalidCredentials() {
+    public void loginWithInvalidCredentials () {
 
         System.setProperty("environment", "PROD");
 
@@ -31,7 +28,7 @@ public class LoginTest {
         Assert.assertEquals(messages.getMessage("SignInErrorMessage"), getLandingPage().getLoginErrorMessage());
     }
 
-    LandingPage getLandingPage(){
+    LandingPage getLandingPage () {
         WebDriver driverSession = new TestRunnerInfo().getDriverSession();
         DeviceInterface runnerInfo = new TestRunnerInfo().getRunnerInfo();
         messages = runnerInfo.getMessages();

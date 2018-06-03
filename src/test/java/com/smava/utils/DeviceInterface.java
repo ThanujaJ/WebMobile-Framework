@@ -1,8 +1,5 @@
 package com.smava.utils;
 
-import com.smava.pageActions.LandingPage;
-import com.smava.pageActions.ResultPage;
-
 /**
  * @author Sudhanva on 5/30/18
  * @project smava
@@ -14,7 +11,7 @@ public interface DeviceInterface {
 
     void viewLoanOptions ( String bankName );
 
-    void performLogin(String emailAddress, String password);
+    void performLogin ( String emailAddress, String password );
 
-    String getLoginErrorMessage();
+    String getLoginErrorMessage ();
 }

@@ -1,12 +1,10 @@
 package com.smava.flows;
 
-import com.smava.pageActions.LandingPage;
 import com.smava.pageObjects.LandingPageObjects;
 import com.smava.utils.DeviceHelper;
 import com.smava.utils.DeviceInterface;
 import com.smava.utils.Messages;
 import com.smava.utils.WebMessages;
-import com.thoughtworks.device.DeviceManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +15,7 @@ import org.openqa.selenium.support.PageFactory;
  * @author Sudhanva on 5/30/18
  * @project smava
  */
-public class WebFlow implements DeviceInterface{
+public class WebFlow implements DeviceInterface {
 
     WebDriver webDriver;
     DeviceHelper deviceHelper;
@@ -36,7 +34,7 @@ public class WebFlow implements DeviceInterface{
     }
 
     @Override
-    public Messages getMessages(){
+    public Messages getMessages () {
         return new WebMessages();
     }
 
@@ -54,10 +52,9 @@ public class WebFlow implements DeviceInterface{
     }
 
     @Override
-    public void enterLoanDetails( String loanCategory, String loanAmount, String loanDuration ) throws InterruptedException
-    {
+    public void enterLoanDetails ( String loanCategory, String loanAmount, String loanDuration ) throws InterruptedException {
         landingPageObjects.loanAmount.click();
-        landingPageObjects.loanAmount.sendKeys(loanAmount.replace(".",""));
+        landingPageObjects.loanAmount.sendKeys(loanAmount.replace(".", ""));
         landingPageObjects.loanAmount.sendKeys(Keys.ENTER);
 
         landingPageObjects.loanDuration.click();
@@ -69,14 +66,14 @@ public class WebFlow implements DeviceInterface{
     }
 
     @Override
-    public void viewLoanOptions ( String bankName ){
+    public void viewLoanOptions ( String bankName ) {
         deviceHelper.waitTillTheElementIsVisibleAndClickable(continueBtn(bankName));
 
         continueBtn(bankName).click();
     }
 
     @Override
-    public void performLogin(String emailAddress, String password){
+    public void performLogin ( String emailAddress, String password ) {
 
         landingPageObjects.anmeldenLink.click();
 
@@ -88,7 +85,7 @@ public class WebFlow implements DeviceInterface{
     }
 
     @Override
-    public String getLoginErrorMessage(){
+    public String getLoginErrorMessage () {
         return landingPageObjects.loginErrMessage.getText();
     }
 }

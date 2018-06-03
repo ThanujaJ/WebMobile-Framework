@@ -34,7 +34,7 @@ public class ViewFactory extends DeviceHelper {
                 e_driver.register(eventListener);
 
                 return mobileFlow = new MobileFlow(e_driver);
-            }else {
+            } else {
                 System.out.println("---Couldn't return a platform---");
             }
         }

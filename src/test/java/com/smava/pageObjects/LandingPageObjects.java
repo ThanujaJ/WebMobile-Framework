@@ -1,9 +1,5 @@
 package com.smava.pageObjects;
 
-import com.sun.org.apache.xpath.internal.res.XPATHErrorResources;
-import gherkin.lexer.El;
-import io.appium.java_client.pagefactory.AndroidBy;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -16,22 +12,22 @@ public class LandingPageObjects {
     @FindBy(xpath = "//div[@id='myselect']//input")
     public WebElement loanAmount;
 
-    @FindBy(id="lsAmount")
+    @FindBy(id = "lsAmount")
     public WebElement m_loanAmount;
 
     @FindBy(xpath = "//a[@class='item menu-accor hide show-1200']")
     public WebElement m_menuIcon;
 
-    @FindBy(xpath="//div[@id='myselect2']//input")
+    @FindBy(xpath = "//div[@id='myselect2']//input")
     public WebElement loanDuration;
 
     @FindBy(id = "lsDuration")
     public WebElement m_loanDuration;
 
-    @FindBy(id="lsCategory")
+    @FindBy(id = "lsCategory")
     public WebElement m_loanCategory;
 
-    @FindBy(id="loanSelectionForward")
+    @FindBy(id = "loanSelectionForward")
     public WebElement compare;
 
     @FindBy(xpath = "//div[@class='title login']")
@@ -40,13 +36,13 @@ public class LandingPageObjects {
     @FindBy(xpath = "//a[text()='Anmelden']")
     public WebElement anmeldenLink;
 
-    @FindBy(id="signonForm.email")
+    @FindBy(id = "signonForm.email")
     public WebElement emailAddress;
 
     @FindBy(xpath = "//form[@class='signonForm signonFormMobile transition visible']//input[@id='signonForm.email']")
     public WebElement m_emailAddress;
 
-    @FindBy(id="signonForm.password")
+    @FindBy(id = "signonForm.password")
     public WebElement password;
 
     @FindBy(xpath = "//form[@class='signonForm signonFormMobile transition visible']//input[@id='signonForm.password']")
@@ -55,8 +51,8 @@ public class LandingPageObjects {
     @FindBy(xpath = "//button[contains(@onclick, 'Mobile')]//div[@id='cta-label']")
     public WebElement m_anmeldenButton;
 
-    @FindBy(id="cta-label")
-    public  WebElement anmeldenButton;
+    @FindBy(id = "cta-label")
+    public WebElement anmeldenButton;
 
     @FindBy(xpath = "//div[@class='box-wrapper error']//li")
     public WebElement loginErrMessage;

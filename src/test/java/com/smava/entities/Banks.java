@@ -1,8 +1,5 @@
 package com.smava.entities;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author Sudhanva on 5/31/18
  * @project smava
