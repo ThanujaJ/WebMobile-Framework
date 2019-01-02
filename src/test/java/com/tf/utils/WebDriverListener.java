@@ -29,7 +29,7 @@ public class WebDriverListener implements IInvokedMethodListener, ITestListener,
     private int maxCount = Integer.parseInt("1");
     static HashMap<String, ExtentTest> extentMap = new HashMap();
     PropertyReader propertyReader;
-    public static String filePath = System.getProperty("user.dir") + "/target/SmavaAutomationReport.html";
+    public static String filePath = System.getProperty("user.dir") + "/target/AutomationReport.html";
 
     public WebDriverListener () {
         propertyReader = PropertyReader.getInstance();
@@ -110,8 +110,8 @@ public class WebDriverListener implements IInvokedMethodListener, ITestListener,
     private static ExtentHtmlReporter getHtmlReporter () {
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(filePath);
         htmlReporter.config().setChartVisibilityOnOpen(true);
-        htmlReporter.config().setDocumentTitle("Responsive Smava Automation");
-        htmlReporter.config().setReportName("Smava Execution Report");
+        htmlReporter.config().setDocumentTitle("Responsive Automation");
+        htmlReporter.config().setReportName("Execution Report");
         htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
         htmlReporter.config().setTheme(Theme.STANDARD);
         return htmlReporter;

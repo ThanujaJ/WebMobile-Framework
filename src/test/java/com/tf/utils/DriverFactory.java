@@ -24,10 +24,8 @@ public class DriverFactory {
             case "chrome":
 
                 System.setProperty("webdriver.chrome.driver", "./src/test/resources/drivers/chromedriver.exe");
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("start-fullscreen");
-                options.addArguments("--lang=en");
-                driver = new ChromeDriver(options);
+                driver = new ChromeDriver();
+                driver.manage().window().maximize();
                 break;
 
             case "firefox":

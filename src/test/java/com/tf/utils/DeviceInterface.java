@@ -6,4 +6,6 @@ public interface DeviceInterface {
     void performLogin ( String emailAddress, String password );
 
     String getLoginErrorMessage ();
+
+	boolean validateLogin();
 }

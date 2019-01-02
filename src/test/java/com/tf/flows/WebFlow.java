@@ -1,16 +1,14 @@
 package com.tf.flows;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+import com.tf.pageObjects.HomePageObjects;
 import com.tf.pageObjects.LandingPageObjects;
 import com.tf.utils.DeviceHelper;
 import com.tf.utils.DeviceInterface;
 import com.tf.utils.Messages;
 import com.tf.utils.WebMessages;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 
 public class WebFlow implements DeviceInterface {
 
@@ -18,16 +16,19 @@ public class WebFlow implements DeviceInterface {
     DeviceHelper deviceHelper;
     DeviceInterface runnerInfo;
     LandingPageObjects landingPageObjects;
+    HomePageObjects homePageObjects;
 
     public WebFlow ( WebDriver driver ) {
         this.webDriver = driver;
         deviceHelper = new DeviceHelper(driver);
         landingPageObjects = new LandingPageObjects();
+        homePageObjects = new HomePageObjects();
 
         this.runnerInfo = runnerInfo;
 
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, landingPageObjects);
+        PageFactory.initElements(driver, homePageObjects);
     }
 
     @Override
@@ -49,5 +50,9 @@ public class WebFlow implements DeviceInterface {
 		return landingPageObjects.loginErrorMessage.getText();
 	}
 
+	@Override
+	public boolean validateLogin() {
+		return homePageObjects.homePageLogo.isDisplayed();
+	}
 
 }
