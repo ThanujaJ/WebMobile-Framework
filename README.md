@@ -94,6 +94,6 @@ Framework has been integrated with Extent Reports, we can find under target fold
 
 •  	Mobile Execution Report: ExternReports.html
 
-•	Web Execution Report: SmavaAutomationReport.html
+•	Web Execution Report: AutomationReport.html
 
 
