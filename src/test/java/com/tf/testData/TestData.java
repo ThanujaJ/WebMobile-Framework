@@ -8,6 +8,6 @@ public class TestData {
 	@DataProvider
     public static Object[][] getLoginDetails () throws InterruptedException {
 
-        	return new Object[][]{{new LoginDetails("104238", "p@ssw0rd", "104238", "jdduidjie")}};
+        	return new Object[][]{{new LoginDetails("xyz@gmail.com", "p@ssw0rd", "xyz@gmail.com", "jdduidjie")}};
 }
 	}

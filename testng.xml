@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Automation Suite" parallel="methods" preserve-order="true">
+<suite name="Automation Suite" parallel="tests" preserve-order="true">
     <listeners>
         <listener class-name="com.tf.utils.WebDriverListener"></listener>
     </listeners>
@@ -10,10 +10,10 @@
             <class name="com.tf.tests.LoginTest"/>
         </classes>
     </test>
-    <test name="firefox">
-        <parameter name="browserName" value="firefox"></parameter>
-        <classes>
-            <class name="com.tf.tests.LoginTest"/>
-        </classes>
-    </test>
+<!--     <test name="firefox"> -->
+<!--         <parameter name="browserName" value="firefox"></parameter> -->
+<!--         <classes> -->
+<!--             <class name="com.tf.tests.LoginTest"/> -->
+<!--         </classes> -->
+<!--     </test> -->
 </suite>
